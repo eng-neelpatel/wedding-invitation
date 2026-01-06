@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaimin & Bhrati - The Wedding Journey</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Noto+Sans+Gujarati:wght@400;700&display=swap');
+        
+        :root {
+            --road-color: #333;
+            --road-line: #f1c40f;
+            --grass: #7bed9f;
+            --card-bg: #fff;
+            --accent: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Noto Sans Gujarati', sans-serif;
+            background-color: #e3f2fd;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border-bottom: 10px solid var(--road-color);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .sub-title {
+            font-size: 1.5rem;
+            color: #555;
+            margin-top: 10px;
+        }
+        
+        .start-car {
+            font-size: 4rem;
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .highway-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+        
+        .highway-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 80px;
+            margin-left: -40px;
+            background-color: var(--road-color);
+            border-left: 5px solid white;
+            border-right: 5px solid white;
+            background-image: linear-gradient(to bottom, var(--road-line) 50%, transparent 50%);
+            background-size: 10px 60px;
+            z-index: 1;
+        }
+        
+        .event-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            width: 40%;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .event-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-row:nth-child(odd) .event-card {
+            margin-left: 20px;
+        }
+        
+        .event-row.right-aligned {
+            flex-direction: row-reverse;
+        }
+        
+        .event-row.right-aligned .event-card {
+            margin-right: 20px;
+        }
+        
+        .car-icon {
+            font-size: 3rem;
+            position: absolute;
+            top: -25px;
+            right: 20px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .event-time {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+        
+        .event-loc {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .gujarati-text {
+            font-family: 'Noto Sans Gujarati', sans-serif;
+            color: #555;
+            font-size: 0.95rem;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .signpost {
+            background: #27ae60;
+            color: white;
+            padding: 10px 30px;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+            margin: 40px auto;
+            position: relative;
+            z-index: 5;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .highway-container::before {
+                left: 20px;
+                margin-left: 0;
+            }
+            .event-row, .event-row.right-aligned {
+                flex-direction: column;
+                align-items: flex-end;
+                margin-bottom: 50px;
+            }
+            .event-card {
+                width: 75%;
+                margin-right: 20px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="start-car">🚗</div>
+        <h1>Jaimin & Bhrati</h1>
+        <div class="sub-title">Are Getting Married!</div>
+        <p style="margin-top:20px; font-size: 1.2rem">Buckle up for the journey...</p>
+    </header>
+    
+    <div class="highway-container">
+        <div class="event-row">
+            <div class="event-card">
+                <div class="car-icon">🏍️</div>
+                <div class="event-time">09:00 AM</div>
+                <h3 class="event-title">Ganesh Sthapan</h3>
+                <div class="event-loc">📍 1298, Shivam Society, Gandhinagar</div>
+                <div class="gujarati-text">સવારે 9:15 - 9:30</div>
+            </div>
+        </div>
+        
+        <div class="event-row right-aligned">
+            <div><div>
+            <div class="event-card">
+                <div class="car-icon">🎉</div>
+                <div class="event-time">08:00 PM</div>
+                <h3 class="event-title">Ras-Garba Night</h3>
+                <div class="event-loc">📍 Navratri Chowk, Sec-27</div>
+                <div class="gujarati-text">રાત્રે 8 - 12 - The Party Bus Arrives!</div>
+            </div>
+        </div>
+        
+        <div class="signpost">📅 Sunday, 25 Jan 2026</div>
+        
+        <div class="event-row">
+            <div class="event-card">
+                <div class="car-icon">🙏</div>
+                <div class="event-time">09:00 AM</div>
+                <h3 class="event-title">Grah Shanti & Mameru</h3>
+                <div class="event-loc">📍 1298, Shivam Society</div>
+                <div class="gujarati-text">સવારે 9 - 12</div>
+            </div>
+        </div>
+        
+        <div class="event-row right-aligned">
+            <div></div>
+            <div class="event-card">
+                <div class="car-icon">🍽️</div>
+                <div class="event-time">12:30 PM</div>
+                <h3 class="event-title">Grand Lunch & Bhojan</h3>
+                <div class="event-loc">📍 Navratri Chowk, Sec-27</div>
+                <div class="gujarati-text">બપોરે 12:30 - 2</div>
+            </div>
+        </div>
+        
+        <div class="signpost">🚗 Leaving Gandhinagar<br><br>➡️ Entering Ahmedabad</div>
+        
+        <div class="signpost">📅 Monday, 26 Jan 2026</div>
+        
+        <div class="event-row">
+            <div class="event-card">
+                <div class="car-icon">🌅</div>
+                <div class="event-time">07:30 AM</div>
+                <h3 class="event-title">Jaan Prasthan</h3>
+                <div class="event-loc">📍 Gandhinagar to Ahmedabad</div>
+                <div class="gujarati-text">સવારે 7:30 - The Groom takes off!</div>
+            </div>
+        </div>
+        
+        <div class="event-row right-aligned">
+            <div></div>
+            <div class="event-card" style="border: 2px solid var(--road-line);">
+                <div class="car-icon">💑</div>
+                <div class="event-time">THE MAIN EVENT</div>
+                <h3 class="event-title">Shubh Vivah</h3>
+                <div class="event-loc">📍 Kalash Vihar-1, Ghuma</div>
+                <div class="gujarati-text">સવારે 10 - બપોરે 12</div>
+                <p style="font-size:0.8rem; color:#888">Near Lalgebi Ashram, Ghuma, Ahmedabad</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer style="text-align: center; padding: 50px; background: #2c3e50; color: white;">
+        <h2>We can't wait to see you!</h2>
+        <p>Jaimin & Bhrati</p>
+        <div style="font-size: 3rem; margin-top:20px;">❤️</div>
+    </footer>
+    
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.event-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
